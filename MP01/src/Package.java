@@ -3,7 +3,7 @@ import java.io.Serializable;
 public class Package implements Serializable {
     private Dimensions dimensions; // complex attribute
     private double weight; // simple attribute
-    private static final double weightLowerBoundary = 0.0; // class attribute
+    public static final double weightLowerBoundary = 0.0; // class attribute
 
     public Package(Dimensions dimensions, double weight) {
         setDimensions(dimensions);

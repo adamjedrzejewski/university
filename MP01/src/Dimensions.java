@@ -5,7 +5,7 @@ public class Dimensions implements Serializable {
     private double width; // object attribute
     private double height; // object attribute
 
-    private static final double lowerBoundary = 0.0; // class attribute
+    private static final double lowerBoundary = 0.0;
 
     public Dimensions(double length, double width, double height) {
         setLength(length);

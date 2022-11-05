@@ -4,12 +4,14 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Shipment implements Serializable {
     private LocalDate shipDate; // mandatory attribute
     private LocalDate deliveryDate; // optional attribute
+
+    private static int maxNumberOfDaysBetweenTodayAndShipDate = 7;
 
     private final List<Package> packages = new ArrayList<>(); // multi value attribute
     private static List<Shipment> extent = new ArrayList<>(); // extent
@@ -57,6 +59,10 @@ public class Shipment implements Serializable {
         packages.add(pkg);
     }
 
+    public void removePackage(Package pkg) {
+        packages.remove(pkg);
+    }
+
     public LocalDate getShipDate() {
         return shipDate;
     }
@@ -78,10 +84,33 @@ public class Shipment implements Serializable {
         out.writeObject(extent);
     }
 
+    public static List<Shipment> getExtent() {
+        return new ArrayList<>(extent);
+    }
+
     public static void showExtent() {
         for (Shipment shipment : extent) {
             System.out.println(shipment);
         }
+    }
+
+    public static List<Shipment> findShipmentsSentOnDate(LocalDate date) {
+        if (date == null) {
+            throw new IllegalArgumentException("Date cannot be null.");
+        }
+
+        return extent
+                .stream()
+                .filter(s -> s.shipDate.equals(date))
+                .collect(Collectors.toList());
+    }
+
+    public static int getMaxNumberOfDaysBetweenTodayAndShipDate() {
+        return maxNumberOfDaysBetweenTodayAndShipDate;
+    }
+
+    public static void setMaxNumberOfDaysBetweenTodayAndShipDate(int maxNumberOfDaysBetweenTodayAndShipDate) {
+        Shipment.maxNumberOfDaysBetweenTodayAndShipDate = maxNumberOfDaysBetweenTodayAndShipDate;
     }
 
     @Override
