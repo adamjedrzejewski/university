@@ -48,14 +48,29 @@ public class Shipment implements Serializable {
         if (shipDate == null) {
             throw new IllegalArgumentException("Ship date is required.");
         }
+        if (shipDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Ship date in the past");
+        }
+
         this.shipDate = shipDate;
     }
 
     public void setDeliveryDate(LocalDate deliveryDate) {
+        if (deliveryDate == null) {
+            throw new IllegalArgumentException("Delivery date is required.");
+        }
+        if (deliveryDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Delivery date in the past");
+        }
+
         this.deliveryDate = deliveryDate;
     }
 
     public void addPackage(Package pkg) {
+        if (pkg == null) {
+            throw new IllegalArgumentException("Package cannot be null");
+        }
+
         packages.add(pkg);
     }
 
