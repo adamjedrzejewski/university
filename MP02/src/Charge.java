@@ -2,11 +2,21 @@ public class Charge {
     private String chargeDescription;
     private double chargeValue;
 
-    private Shipment shipment;
+    private ChargeGroup chargeGroup;
 
-    public Charge(String chargeDescription, double chargeValue) {
-        setChargeDescription(chargeDescription);
+    public Charge(ChargeGroup chargeGroup, String chargeDescription, double chargeValue) {
         setChargeValue(chargeValue);
+        setChargeDescription(chargeDescription);
+        setChargeGroup(chargeGroup);
+    }
+
+    private void setChargeGroup(ChargeGroup chargeGroup) {
+        if (this.chargeGroup != null) {
+            return;
+        }
+
+        this.chargeGroup = chargeGroup;
+        this.chargeGroup.addCharge(this);
     }
 
     public String getChargeDescription() {
@@ -15,7 +25,7 @@ public class Charge {
 
     public void setChargeDescription(String chargeDescription) {
         if (chargeDescription == null || chargeDescription.trim().isEmpty()) {
-            throw new IllegalArgumentException("Charge description cannot be null or empty.");
+            throw new IllegalArgumentException("Charge description cannot be null, blank or empty.");
         }
 
         this.chargeDescription = chargeDescription;
@@ -33,12 +43,7 @@ public class Charge {
         this.chargeValue = chargeValue;
     }
 
-    public Shipment getShipment() {
-        return shipment;
-    }
-
-    public void setShipment(Shipment shipment) {
-        this.shipment = shipment;
-
+    public ChargeGroup getChargeGroup() {
+        return chargeGroup;
     }
 }

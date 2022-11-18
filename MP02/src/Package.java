@@ -18,12 +18,26 @@ public class Package {
         this.weight = weight;
     }
 
-    public Shipment getShipment() {
-        return shipment;
+    public void setShipment(Shipment shipment) {
+        if (this.shipment != null) {
+            return;
+        }
+
+        this.shipment = shipment;
+        this.shipment.addPackage(this);
     }
 
-    public void setShipment(Shipment shipment) {
+    public void removeShipment() {
+        if (this.shipment == null) {
+            return;
+        }
 
+        this.shipment.removePackage(this);
+        this.shipment = null;
+    }
+
+    public Shipment getShipment() {
+        return shipment;
     }
 
     @Override
