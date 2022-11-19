@@ -59,6 +59,10 @@ public class Shipment {
         return new HashMap<>(this.chargeGroups);
     }
 
+    public ChargeGroup getChargeGroup(String chargeGroupName) {
+        return this.chargeGroups.get(chargeGroupName);
+    }
+
     @Override
     public String toString() {
         return "Shipment{" +

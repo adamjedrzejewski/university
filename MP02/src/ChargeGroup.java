@@ -39,6 +39,10 @@ public class ChargeGroup {
         this.shipment = shipment;
     }
 
+    public Shipment getShipment() {
+        return this.shipment;
+    }
+
     @Override
     public String toString() {
         return "ChargeGroup{" +

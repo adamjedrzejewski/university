@@ -30,9 +30,11 @@ public class Main {
         shipment1.addChargeGroup("Accessorial Charges", accessorialChargeGroup);
         shipment1.addChargeGroup("Shipping Charges", shippingChargeGroup);
 
-        for (Map.Entry<String, ChargeGroup> entry : shipment1.getChargeGroups().entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-        }
+        System.out.println("Charge group: " + "Accessorial Charges" + " -> " + shipment1.getChargeGroup("Accessorial Charges"));
+        System.out.println("Charge group: " + "Shipping Charges" + " -> " + shipment1.getChargeGroup("Shipping Charges"));
+        System.out.println("Reverse connections:"
+                + "\n\tshipment == shipment.getChargeGroup(Accessorial Charges).getShipment(): " + (shipment1 == shipment1.getChargeGroup("Accessorial Charges").getShipment())
+                + "\n\tshipment == shipment.getChargeGroup(Shipping Charges).getShipment(): " + (shipment1 == shipment1.getChargeGroup("Shipping Charges").getShipment()));  
 
         // with attribute
         Truck truck = new Truck("2139812083912", "6f16fa12-05be-41f5-a5c5-716042604911");
@@ -48,11 +50,3 @@ public class Main {
                 + "\n\tdriver == truck.getDriver(): " + (driver == truck.getDriver()));
     }
 }
-
-/*
-    Composition
-        one charge group must have at least one charge and may have multiple charges
-
-    Qualified
-        One shipment may have multiple charge groups
- */
