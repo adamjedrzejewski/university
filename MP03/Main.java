@@ -59,7 +59,7 @@ public class Main {
         Person person1 = new Person(0, 0, 22);
         Person person2 = new Person(14, 0, 33);
 
-        System.out.println("\nABSTRACT CLASS");
+        System.out.println("\nOVERLAPPING");
         System.out.printf("Tax on 27 year old with 2 children, 94000 income: %.2f\n", person0.getTaxOnIncome(94000));
         System.out.printf("Tax on 22 year old with 0 children, 55000 income: %.2f\n", person1.getTaxOnIncome(55000));
         System.out.printf("Tax on 33 year old with 0 children, 14 years of service, 200000 income: %.2f\n", person2.getTaxOnIncome(200000));

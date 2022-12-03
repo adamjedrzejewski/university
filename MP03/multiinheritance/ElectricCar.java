@@ -1,6 +1,6 @@
 package multiinheritance;
 
-public class ElectricCar extends Car {
+public class ElectricCar extends Car implements IElectricCar {
     protected final double power;
     protected final double batteryCapacity;
 
