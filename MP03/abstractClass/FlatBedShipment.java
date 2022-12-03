@@ -1,4 +1,4 @@
-package abstractclass;
+package abstractClass;
 
 public class FlatBedShipment extends ShipmentService {
 

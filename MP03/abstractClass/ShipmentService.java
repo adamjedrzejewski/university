@@ -1,4 +1,4 @@
-package abstractclass;
+package abstractClass;
 
 public abstract class ShipmentService {
     protected HazardousMaterialType hazardousMaterialType = HazardousMaterialType.NOT_HAZARDOUS;

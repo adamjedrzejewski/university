@@ -1,6 +1,6 @@
 import dynamic.*;
 import disjoint.*;
-import abstractclass.*;
+import abstractClass.*;
 import multiinheritance.*;
 import overlapping.*;
 

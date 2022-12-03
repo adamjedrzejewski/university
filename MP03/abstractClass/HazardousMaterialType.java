@@ -1,4 +1,4 @@
-package abstractclass;
+package abstractClass;
 
 public enum HazardousMaterialType {
     NOT_HAZARDOUS,
