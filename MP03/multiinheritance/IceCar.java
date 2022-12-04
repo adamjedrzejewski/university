@@ -1,5 +1,6 @@
 package multiinheritance;
 
+// internal combustion engine car
 public class IceCar extends Car {
     protected final double engineDisplacement;
     protected final double power;

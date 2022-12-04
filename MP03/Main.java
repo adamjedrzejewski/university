@@ -55,6 +55,9 @@ public class Main {
         }
 
         // Overlapping
+        // Parent a person with children
+        // Young worker a person younger than 26
+        // Army member a person with number of years of service
         Person person0 = new Person(0, 2, 27);
         Person person1 = new Person(0, 0, 22);
         Person person2 = new Person(14, 0, 33);
@@ -66,6 +69,3 @@ public class Main {
     }
 
 }
-
-/* Multiaspect
- */
